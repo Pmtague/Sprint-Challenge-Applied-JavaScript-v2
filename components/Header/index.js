@@ -7,9 +7,9 @@
 //    <h1>Lambda Times</h1>
 //    <span class="temp">98°</span>
 //  </div >
-// And add it to the DOM in the .headerContainer component
+// And add it to the DOM in the .header-container component
 
-const headerContainer = document.querySelector('.headerContainer');
+const headerContainer = document.querySelector('.header-container');
 
 headerContainer.appendChild(header());
 
@@ -30,6 +30,10 @@ function header() {
     header.classList.add('header');
     date.classList.add('date');
     temperature.classList.add('temp');
+
+    //Set Content
+    date.textContent = 'March 28, 2019';
+    temperature.textContent = '98°';
 
     return header;
     
