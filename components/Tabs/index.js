@@ -13,7 +13,6 @@ axios.get('https://lambda-times-backend.herokuapp.com/topics')
         console.log('Data:', data);
 
         const topics = document.querySelector('.topics');
-        // const topicsArray = data.data.topics;
         const topicsArray = data.data.topics;
         topicsArray.forEach(topic => {
             // const tab = createTab(topic);

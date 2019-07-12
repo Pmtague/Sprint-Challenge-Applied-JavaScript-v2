@@ -34,6 +34,7 @@ function header() {
     //Set Content
     date.textContent = 'March 28, 2019';
     temperature.textContent = '98°';
+    title.textContent = 'Lambda Times';
 
     return header;
     
