@@ -30,7 +30,31 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
             cardsContainer.appendChild(newJSCard);
         });
 
-        
+        const cardBoot = data.data.articles.bootstrap;
+        cardBoot.forEach(article => {
+            const newBootCard = createCard(article);
+            cardsContainer.appendChild(newBootCard);
+        });
+
+        const cardTech = data.data.articles.technology;
+        cardTech.forEach(article => {
+            const newTechCard = createCard(article);
+            cardsContainer.appendChild(newTechCard);
+        });
+
+        const cardJQ = data.data.articles.jquery;
+        cardJQ.forEach(article => {
+            const newJQCard = createCard(article);
+            cardsContainer.appendChild(newJQCard);
+        });
+
+        const cardNode = data.data.articles.node;
+        cardNode.forEach(article => {
+            const newNodeCard = createCard(article);
+            cardsContainer.appendChild(newNodeCard);
+        });
+
+
 
     })
     .catch(error => {
