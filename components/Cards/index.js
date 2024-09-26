@@ -17,3 +17,77 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+    .then(data => {
+        console.log('Data:', data);
+
+        const cardsContainer = document.querySelector('.cards-container');
+        
+        const cardJS = data.data.articles.javascript;
+        cardJS.forEach(article => {
+            const newJSCard = createCard(article);
+            cardsContainer.appendChild(newJSCard);
+        });
+
+        const cardBoot = data.data.articles.bootstrap;
+        cardBoot.forEach(article => {
+            const newBootCard = createCard(article);
+            cardsContainer.appendChild(newBootCard);
+        });
+
+        const cardTech = data.data.articles.technology;
+        cardTech.forEach(article => {
+            const newTechCard = createCard(article);
+            cardsContainer.appendChild(newTechCard);
+        });
+
+        const cardJQ = data.data.articles.jquery;
+        cardJQ.forEach(article => {
+            const newJQCard = createCard(article);
+            cardsContainer.appendChild(newJQCard);
+        });
+
+        const cardNode = data.data.articles.node;
+        cardNode.forEach(article => {
+            const newNodeCard = createCard(article);
+            cardsContainer.appendChild(newNodeCard);
+        });
+
+
+
+    })
+    .catch(error => {
+        console.log('No, seriously, where is my data?', error);
+    })
+
+function createCard (info) {
+
+    // Create Elements
+    const card = document.createElement('div');
+    const headline = document.createElement('div');
+    const author = document.createElement('div');
+    const imageContainer = document.createElement('div');
+    const image = document.createElement('img');
+    const name = document.createElement('span');
+
+    // Set Structure
+    card.appendChild(headline);
+    card.appendChild(author);
+    author.appendChild(imageContainer);
+    author.appendChild(name);
+    imageContainer.appendChild(image);
+
+    // Set Class Names
+    card.classList.add('card');
+    headline.classList.add('headline');
+    author.classList.add('author');
+    imageContainer.classList.add('img-container');
+
+    // Set Content
+    headline.textContent = `${info.headline}`;
+    image.src = `${info.authorPhoto}`;
+    name.textContent = `Author: ${info.authorName}`;
+
+    return card;
+}
